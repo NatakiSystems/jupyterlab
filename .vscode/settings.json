@@ -4,8 +4,8 @@
         {
             "previewLimit": 50,
             "driver": "SQLite",
-            "name": "test",
-            "database": "${workspaceFolder:jupyterlab}/test.sqlite"
+            "name": "Weeksix_Assignment",
+            "database": "${workspaceFolder:jupyterlab}/product-info-quality/test.db"
         }
     ]
 }

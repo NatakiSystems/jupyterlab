@@ -1,5 +1,5 @@
 import json
-from sqlalchemy import Column, Integer, String, DateTime, Text
+from sqlalchemy import Column, Integer, String, DateTime, Text, Numeric
 from sqlalchemy.ext.declarative import declarative_base
 from datetime import datetime
 
@@ -16,6 +16,8 @@ class Product(DBModelBase):
     description = Column(Text, nullable=False)
     attributes = Column(Text, nullable=True) # This stores extra details like battery life as text
     information_score = Column(Integer, nullable=False, default=0)
+    barcode = Column(Numeric, nullable=False, default=0)
+    price = Column(String(255), nullable=False, default=0)
     created_at = Column(DateTime, nullable=False, default=datetime.utcnow)
     updated_at = Column(DateTime, nullable=False, default=datetime.utcnow, onupdate=datetime.utcnow)
 

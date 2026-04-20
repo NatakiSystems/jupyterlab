@@ -26,7 +26,9 @@ def main():
         for _ in range(10):
             attr = {"battery_life_hours": fake.random_int(min=12, max=72)}
             desc = fake.text(max_nb_chars=120)
-            p = Product(name=f"{fake.word().title()} Smartwatch", category="electronics", description=desc)
+            barcode = fake.ean(length=13)
+            price = fake.pricetag()
+            p = Product(name=f"{fake.word().title()} Smartwatch", category="electronics", description=desc, barcode=barcode, price=price)
             p.set_attributes(attr)
             p.information_score = compute_information_score("electronics", desc, attr)
             db.add(p)
@@ -34,8 +36,10 @@ def main():
         # Seed Grocery (15 items)
         for _ in range(15):
             desc = fake.sentence(nb_words=15)
+            barcode = fake.ean(length=13)
+            price = fake.pricetag()
             attr = {"is_gluten_free": fake.boolean(), "is_high_fiber": fake.boolean()}
-            p = Product(name=fake.word().title(), category="grocery", description=desc)
+            p = Product(name=fake.word().title(), category="grocery", description=desc, barcode=barcode, price=price)
             p.set_attributes(attr)
             p.information_score = compute_information_score("grocery", desc, attr)
             db.add(p)
