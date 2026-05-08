@@ -30,3 +30,4 @@ class Product(DBModelBase):
         if not self.attributes:
             return {}
         return json.loads(self.attributes)
+    
